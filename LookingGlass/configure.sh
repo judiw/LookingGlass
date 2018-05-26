@@ -51,7 +51,7 @@ function createConfig()
 EOF
 
   for i in "${TEST[@]}"; do
-    echo "\$testFiles[] = '${i}';" >> "$DIR/$CONFIG"
+    echo "\$testFiles[] = '${i}MB';" >> "$DIR/$CONFIG"
   done
   echo -e "// Theme\n\$theme = '${THEME}';" >> "$DIR/$CONFIG"
 
@@ -312,7 +312,7 @@ function setup()
     echo
     echo 'Removing old test files:'
     # Delete old test files
-    local REMOVE=($(ls ../*.test 2>/dev/null))
+    local REMOVE=($(ls *.test 2>/dev/null))
     for i in "${REMOVE[@]}"; do
       if [ -f "${i}" ]; then
         echo "Removing ${i}"
@@ -340,9 +340,9 @@ function testFiles()
 
   # Check for and/or create test file
   for i in "${TEST[@]}"; do
-    if [[ -n i ]] && [ ! -f "../${i}.test" ]; then
-      echo "Creating $i test file"
-      dd if=/dev/zero of=${i}MB.test bs=1M count=${i}
+    if [[ -n i ]] && [ ! -f "../${i}MB.test" ]; then
+      echo "Creating ${i}MB test file"
+      dd if=/dev/zero of=${i}MB.test bs=1M count=${i} 2>/dev/null
       A=$((A+1))
       sleep 1
     fi
