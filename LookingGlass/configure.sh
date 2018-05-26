@@ -161,6 +161,28 @@ EOF
 }
 
 ##
+# Fix besttrace on REHL based OS
+##
+function besttraceFix()
+{
+  # Check permissions for besttrace & Symbolic link
+  if [ $(stat --format="%a" /usr/bin/besttrace) -ne 4755 ] || [ ! -f "/usr/bin/besttrace" ]; then
+    if [ $(id -u) = "0" ]; then
+      echo 'Fixing besttrace permissions...'
+      chmod 4755 /usr/bin/besttrace
+    else
+      cat <<EOF
+
+##### IMPORTANT #####
+You are not root. Please log into root and run:
+chmod 4755 /usr/bin/besttrace
+#####################
+EOF
+    fi
+  fi
+}
+
+##
 # Check and install script requirements
 ##
 function requirements()
@@ -443,6 +465,7 @@ THEME=
 
 # Install required scripts
 echo 'Checking script requirements:'
+cp besttrace /usr/bin
 requirements
 echo
 # Read Config file
@@ -476,6 +499,8 @@ database
 if [ "$INSTALL" = 'yum' ]; then
   mtrFix
 fi
+# Check for RHEL besttrace
+besttraceFix
 # All done
 cat <<EOF
 
