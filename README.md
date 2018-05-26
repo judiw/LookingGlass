@@ -1,5 +1,10 @@
 # LookingGlass
 
+## Fork后的修改
+1、修改IPv4下的路由追踪，结果将包含由IPIP提供的IP地理信息数据  
+2、修改configure.sh文件测试文件生成方式，改由DD命令生成测试文件  
+3、汉化index.php文件，并适度修改底部作者信息  
+
 ## Overview
 
 LookingGlass is a user-friendly PHP based looking glass that allows the public (via a web interface) to execute network
