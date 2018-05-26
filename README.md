@@ -1,5 +1,7 @@
 # LookingGlass
 
+程序说明与搭建教程：[https://www.sabia.cc/looking-glass-ip-location.html](https://www.sabia.cc/looking-glass-ip-location.html)
+
 ## Fork后的修改
 1、修改IPv4下的路由追踪，结果将包含由IPIP提供的IP地理信息数据  
 2、修改configure.sh文件测试文件生成方式，改由DD命令生成测试文件  
@@ -42,13 +44,11 @@ __IPv6 commands will only work if your server has external IPv6 setup (or tunnel
 
 ## Install
 
-1. Download [LookingGlass](https://github.com/telephone/LookingGlass/archive/v1.3.0.tar.gz) to the intended
+1. Download [LookingGlass](https://github.com/ILLKX/LookingGlass/archive/master.zip) to the intended
 folder within your web directory
 2. Extract archive:
-    - Option #1 - Extract archive to the current directory:
-        - `tar -zxvf LookingGlass-1.3.0.tar.gz --strip-components 1`
-    - Option #2 - Extract archive to a directory named `LookingGlass`:
-        - `tar -zxvf LookingGlass-1.3.0.tar.gz --transform 's!^[^/]\+\($\|/\)!LookingGlass\1!'`
+    - Extract archive to the current directory:
+        - `unzip master.zip`
 3. Navigate to the `LookingGlass` subdirectory in terminal
 4. Run `bash configure.sh`
 5. Follow the instructions and `configure.sh` will take care of the rest
