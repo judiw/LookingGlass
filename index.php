@@ -124,7 +124,7 @@ if (file_exists('LookingGlass/Config.php')) {
         <div class="row">
           <div class="span12">
             <div class="well">
-              <span id="legend">Results</span>
+              <span id="legend">测试结果</span>
               <pre id="response" style="display:none"></pre>
             </div>
           </div>
