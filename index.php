@@ -8,6 +8,16 @@ if (file_exists('LookingGlass/Config.php')) {
 } else {
   exit('Config.php does not exist. Please run configure.sh');
 }
+
+function getIp() {
+  if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
+    $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+  } else {
+    $ip_address = $_SERVER['REMOTE_ADDR'];
+  }
+  return $ip_address;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +95,7 @@ if (file_exists('LookingGlass/Config.php')) {
                   }
                 ?></p>
               </div>
-              <p>您的IP: <b><a href="#tests" id="userip"><?php echo $_SERVER['REMOTE_ADDR']; ?></a></b></p>
+              <p>您的IP: <b><a href="#tests" id="userip"><?php echo getIp(); ?></a></b></p>
             </div>
           </div>
         </div>
