@@ -9,7 +9,7 @@ if (file_exists('LookingGlass/Config.php')) {
   exit('Config.php does not exist. Please run configure.sh');
 }
 
-function getIp() {
+function getIP() {
   if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && $_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
     $ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
   } else {
@@ -95,7 +95,7 @@ function getIp() {
                   }
                 ?></p>
               </div>
-              <p>您的IP: <b><a href="#tests" id="userip"><?php echo getIp(); ?></a></b></p>
+              <p>您的IP: <b><a href="#tests" id="userip"><?php echo getIP(); ?></a></b></p>
             </div>
           </div>
         </div>
@@ -144,6 +144,7 @@ function getIp() {
       <!-- Footer -->
       <footer class="footer nohighlight">
         <p class="pull-right">
+            <a href="/en.php">English</a>
             <a href="#">回到顶部</a>
         </p>
         <p>Localized by <a href="https://github.com/ILLKX/LookingGlass">LookingGlass</a> - Powered by <a href="https://github.com/telephone/LookingGlass">LookingGlass</a></p>
