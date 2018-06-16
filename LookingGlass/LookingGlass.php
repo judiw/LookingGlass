@@ -124,7 +124,7 @@ class LookingGlass
     public function traceroute($host, $fail = 2)
     {
         if ($host = $this->validate($host)) {
-            return $this->procExecute('besttrace -q 1', $host);
+            return $this->procExecute('besttrace -g cn -q 1', $host);
         }
         return false;
     }
