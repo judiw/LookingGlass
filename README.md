@@ -3,13 +3,14 @@
 程序说明与搭建教程：[https://www.sabia.cc/looking-glass-ip-location.html](https://www.sabia.cc/looking-glass-ip-location.html)
 
 ## Demo
-[https://lg.illkx.tk](https://lg.illkx.tk)
+[https://lg.de.vps77.com](https://lg.de.vps77.com)
 
 ## Fork后的修改
 1、修改IPv4下的路由追踪，结果将包含由IPIP提供的IP地理信息数据  
 2、修改configure.sh文件测试文件生成方式，改由DD命令生成测试文件  
 3、汉化index.php文件，并适度修改底部作者信息  
 4、添加英文页面，调整路由追踪结果语言  
+5、修改IPv6下的路由追踪，结果将包含由IPIP提供的IP地理信息数据  
 
 ## Overview
 
