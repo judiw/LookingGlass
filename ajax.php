@@ -23,7 +23,7 @@ if (isset($_GET['cmd']) && isset($_GET['host'])) {
     // verify command
     if (in_array($_GET['cmd'], $cmds)) {
         // include required scripts
-        $required = array('LookingGlassEn.php', 'RateLimit.php', 'Config.php');
+        $required = array('LookingGlass.php', 'RateLimit.php', 'Config.php');
         foreach ($required as $val) {
             require 'LookingGlass/' . $val;
         }
