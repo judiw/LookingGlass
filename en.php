@@ -2,7 +2,7 @@
 // lazy config check/load
 if (file_exists('LookingGlass/Config.php')) {
   require 'LookingGlass/Config.php';
-  if (!isset($ipv4, $ipv6, $siteName, $siteUrl, $serverLocation_en, $testFiles, $theme)) {
+  if (!isset($ipv4, $ipv6, $siteName_en, $siteUrl, $serverLocation_en, $testFiles, $theme)) {
     exit('Configuration variable/s missing. Please run configure.sh');
   }
 } else {
@@ -53,7 +53,7 @@ function getIP() {
 -->
   <head>
     <meta charset="utf-8">
-    <title><?php echo $siteName; ?> - Looking Glass</title>
+    <title><?php echo $siteName_en; ?> - Looking Glass</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="LookingGlass - Open source PHP looking glass">
     <meta name="author" content="Telephone">
@@ -74,7 +74,7 @@ function getIP() {
       <header class="header nohighlight" id="overview">
         <div class="row">
           <div class="span12">
-            <h1><a id="title" href="<?php echo $siteUrl; ?>/en.php"><?php echo $siteName; ?></a></h1>
+            <h1><a id="title" href="<?php echo $siteUrl; ?>/en.php"><?php echo $siteName_en; ?></a></h1>
           </div>
         </div>
       </header>
