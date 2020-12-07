@@ -46,6 +46,7 @@ function createConfig()
 \$siteUrl = '${URL}';
 // Server location
 \$serverLocation = '${LOCATION}';
+\$serverLocation_en = '${LOCATION_EN}';
 // Test files
 \$testFiles = array();
 EOF
@@ -88,6 +89,8 @@ function config()
         RATELIMIT=("$(echo $f2 | awk -F\' '{print $(NF-1)}')")
       elif [ $f1 = '$serverLocation' ]; then
         LOCATION="$(echo $f2 | awk -F\' '{print $(NF-1)}')"
+      elif [ $f1 = '$serverLocation_en' ]; then
+        LOCATION_EN="$(echo $f2 | awk -F\' '{print $(NF-1)}')"
       elif [ $f1 = '$siteName' ]; then
         SITE=("$(echo $f2 | awk -F\' '{print $(NF-1)}')")
       elif [ $f1 = '$siteUrl' ]; then
@@ -275,7 +278,8 @@ function setup()
   # User input
   read -e -p "Enter your website name (Header/Logo) [${SITE}]: " S
   read -e -p "Enter the public URL to this LG (including http://) [${URL}]: " U
-  read -e -p "Enter the servers location [${LOCATION}]: " LOC
+  read -e -p "Enter the servers location in Chinese [${LOCATION}]: " LOC
+  read -e -p "Enter the servers location in English [${LOCATION_EN}]: " LOC_EN
   read -e -p "Enter the test IPv4 address [${IPV4}]: " IP4
   read -e -p "Enter the test IPv6 address (Re-enter everytime this script is run) [${IPV6}]: " IP6
   read -e -p "Enter the size of test files in MB (Example: 25 50 100) [${TEST[*]}]: " T
@@ -289,6 +293,9 @@ function setup()
   IPV6=$IP6
   if [[ -n $LOC ]]; then
     LOCATION=$LOC
+  fi
+  if [[ -n $LOC_EN ]]; then
+    LOCATION_EN=$LOC_EN
   fi
   if [[ -n $S ]]; then
     SITE=$S
@@ -457,6 +464,7 @@ DIR="$(cd "$(dirname "$0")" && pwd)"
 IPV4=
 IPV6=
 LOCATION=
+LOCATION_EN=
 RATELIMIT=
 SITE=
 URL=
