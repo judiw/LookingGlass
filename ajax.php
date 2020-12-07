@@ -49,3 +49,4 @@ if (isset($_GET['cmd']) && isset($_GET['host'])) {
 }
 // report error
 exit('Unauthorized request');
+ 
