@@ -42,6 +42,7 @@ function createConfig()
 \$rateLimit = (int) '${RATELIMIT}';
 // Site name (header)
 \$siteName = '${SITE}';
+\$siteName_en = '${SITE_EN}';
 // Site URL
 \$siteUrl = '${URL}';
 // Server location
@@ -93,6 +94,8 @@ function config()
         LOCATION_EN="$(echo $f2 | awk -F\' '{print $(NF-1)}')"
       elif [ $f1 = '$siteName' ]; then
         SITE=("$(echo $f2 | awk -F\' '{print $(NF-1)}')")
+      elif [ $f1 = '$siteName_en' ]; then
+        SITE_EN=("$(echo $f2 | awk -F\' '{print $(NF-1)}')")
       elif [ $f1 = '$siteUrl' ]; then
         URL=("$(echo $f2 | awk -F\' '{print $(NF-1)}')")
       elif [ $f1 = '$testFiles[]' ]; then
@@ -276,7 +279,8 @@ function setup()
   local U=
 
   # User input
-  read -e -p "Enter your website name (Header/Logo) [${SITE}]: " S
+  read -e -p "Enter your website name (Header/Logo) in Chinese [${SITE}]: " S
+  read -e -p "Enter your website name (Header/Logo) in English [${SITE_EN}]: " S_EN
   read -e -p "Enter the public URL to this LG (including http://) [${URL}]: " U
   read -e -p "Enter the servers location in Chinese [${LOCATION}]: " LOC
   read -e -p "Enter the servers location in English [${LOCATION_EN}]: " LOC_EN
@@ -299,6 +303,9 @@ function setup()
   fi
   if [[ -n $S ]]; then
     SITE=$S
+  fi
+  if [[ -n $S_EN ]]; then
+    SITE_EN=$S_EN
   fi
   if [[ -n $U ]]; then
     URL=$U
@@ -467,6 +474,7 @@ LOCATION=
 LOCATION_EN=
 RATELIMIT=
 SITE=
+SITE_EN=
 URL=
 TEST=()
 THEME=
